@@ -1,17 +1,14 @@
 import { Search } from "./components/search"
-import { useEffect } from "react"
-import useIgnoreMouseEvents from "./hook"
+import { Result } from "./components/result"
 
 
 
 function App(): React.JSX.Element {
-   useEffect(() => {
-    const { setIgnoreMouseEvents } = useIgnoreMouseEvents()
-    setIgnoreMouseEvents()
-   })
+
   return (
     <>
         <Search />
+        <Result />
     </>
   )
 }

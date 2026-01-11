@@ -24,7 +24,8 @@
     "@electron-toolkit/preload": "^3.0.2",
     "@electron-toolkit/utils": "^4.0.0",
     "electron-updater": "^6.3.9",
-    "sass-embedded": "^1.97.2"
+    "sass-embedded": "^1.97.2",
+    "use-immer": "^0.11.0"
   },
   "devDependencies": {
     "@electron-toolkit/eslint-config-prettier": "^3.0.0",
