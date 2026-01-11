@@ -1,6 +1,7 @@
 import './assets/main.css'
 
 import '@renderer/assets/tailwind.css'
+import './assets/global.scss'
 
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'

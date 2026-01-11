@@ -2,6 +2,9 @@ import { app, shell, BrowserWindow, ipcMain, screen } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
+import './ipc'
+
+
 
 function createWindow(): void {
   const { width } = screen.getPrimaryDisplay().workAreaSize
@@ -9,9 +12,11 @@ function createWindow(): void {
   const mainWindow = new BrowserWindow({
     width: 600,
     height: 600,
-    x: width - 600,
+    x: width - 600, 
     y: 50,
     show: false,
+    frame: false,
+    transparent: true,
     alwaysOnTop: true,
     autoHideMenuBar: true,
     ...(process.platform === 'linux' ? { icon } : {}),
