@@ -1,4 +1,4 @@
-export interface ResultData {
+export interface ResultDataInterFace {
     id: number
     content: string
 }   
@@ -28,4 +28,4 @@ export const data =[
         id: 6,
         content: "Nuxt.js is a Vue.js framework that enables server-side rendering and static site generation.",
     }
-] as ResultData[]
+] as ResultDataInterFace[]

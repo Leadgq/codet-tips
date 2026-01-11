@@ -1,7 +1,7 @@
-import { useImmer } from "use-immer"
-import { ResultData, data } from "../../Data"
+import { useCodeContext } from "@renderer/hook"
+
 export function Result(): React.JSX.Element {
-    const [resultData, setResultData] = useImmer<ResultData[]>(data)
+    const { resultData } = useCodeContext()
     return (
         <>
             <div className="bg-slate-50 px-3 rounded-bl-lg rounded-br-lg -mt-[7px]" >
