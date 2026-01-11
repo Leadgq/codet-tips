@@ -1,7 +1,17 @@
 import { useCodeContext } from "@renderer/hook"
+import { useEffect } from "react"
 
 export function Result(): React.JSX.Element {
     const { resultData } = useCodeContext()
+    useEffect(() => {
+       const handleKeyDown = (e: KeyboardEvent) => {
+            console.log('按下');
+        }
+        document.addEventListener('keydown', handleKeyDown)
+        return () => {
+            document.removeEventListener('keydown', handleKeyDown)
+        }
+    }, [])
     return (
         <>
             <div className="bg-slate-50 px-3 rounded-bl-lg rounded-br-lg -mt-[7px]" >
