@@ -17,6 +17,9 @@ export function Result(): React.JSX.Element {
             case 'ArrowDown':
                 setCurrentIndex(prev => prev + 1 >= resultData.length ? 0 : prev + 1);
                 break;
+            case 'Enter':
+                navigator.clipboard.writeText(resultData[currentIndex].content);
+                break;
         }
     }
     useEffect(() => {
@@ -24,7 +27,7 @@ export function Result(): React.JSX.Element {
         return () => {
             document.removeEventListener('keydown', handleKeyDown)
         }
-    }, [resultData])
+    }, [resultData, currentIndex])
 
     function setActive(index: number) {
         return index === currentIndex ? 'item active' : 'item'
