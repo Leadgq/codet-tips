@@ -1,4 +1,4 @@
-import { codeContext, CodeContextValue } from "@renderer/CodeContext/context"
+import { CodeContext, CodeContextValue } from "@renderer/CodeContext/context"
 import { useContext ,useEffect} from "react"
 import { useImmer } from "use-immer"
 
@@ -19,7 +19,7 @@ export function setIgnoreMouseEvents(): void {
 
 
 export function  useCodeContext(): CodeContextValue {
-  const context = useContext(codeContext)
+  const context = useContext(CodeContext)
   if (!context?.resultData) {
     throw new Error('useCodeContext must be used within a CodeContextProvider')
   }
