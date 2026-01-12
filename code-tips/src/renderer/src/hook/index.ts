@@ -1,5 +1,6 @@
 import { codeContext, CodeContextValue } from "@renderer/CodeContext/context"
-import { useContext } from "react"
+import { useContext ,useEffect} from "react"
+import { useImmer } from "use-immer"
 
 export function setIgnoreMouseEvents(): void {
   const el = document.querySelector('#root') as HTMLDivElement
@@ -23,4 +24,40 @@ export function  useCodeContext(): CodeContextValue {
     throw new Error('useCodeContext must be used within a CodeContextProvider')
   }
   return context
+}
+
+export function useSelectCode(){
+    const { resultData } = useCodeContext()
+    const [currentIndex, setCurrentIndex] = useImmer(0);
+    const handleKeyDown = (e: KeyboardEvent) => {
+        if (resultData.length === 0) {
+            return;
+        }
+        switch (e.code) {
+            case 'ArrowUp':
+                setCurrentIndex(prev => prev - 1 < 0 ? resultData.length - 1 : prev - 1);
+                break;
+            case 'ArrowDown':
+                setCurrentIndex(prev => prev + 1 >= resultData.length ? 0 : prev + 1);
+                break;
+            case 'Enter':
+                navigator.clipboard.writeText(resultData[currentIndex].content);
+                break;
+        }
+    }
+    useEffect(() => {
+        document.addEventListener('keydown', handleKeyDown)
+        return () => {
+            document.removeEventListener('keydown', handleKeyDown)
+        }
+    }, [resultData, currentIndex])
+
+    useEffect(() => {
+        setCurrentIndex(0)
+    }, [resultData])
+
+    return {
+        resultData,
+        currentIndex,
+    }
 }
