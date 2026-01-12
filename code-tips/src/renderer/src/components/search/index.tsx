@@ -10,7 +10,8 @@ export function Search(): React.JSX.Element {
         const target = e.target.value;
         setSearchText(target)
         if (target) {
-            const codeList = codes.filter((item) => item.content.toLocaleLowerCase().includes(target.toLocaleLowerCase()))
+            const filterList = codes.filter((item) => item.content.toLocaleLowerCase().includes(target.toLocaleLowerCase()));
+            const codeList = filterList.slice(0, 5)
             setResultData(
                 codeList
             )
