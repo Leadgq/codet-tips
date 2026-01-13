@@ -7,3 +7,8 @@ ipcMain.on(
     win?.setIgnoreMouseEvents(ignore, options)
   }
 )
+
+ipcMain.on('hiddenWindow',(event: IpcMainEvent)=>{
+   const win = BrowserWindow.fromWebContents(event.sender)
+   win?.hide()
+})

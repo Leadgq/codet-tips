@@ -1,6 +1,6 @@
-import { CodeContext, CodeContextValue } from "@renderer/CodeContext/context"
-import { useContext ,useEffect} from "react"
-import { useImmer } from "use-immer"
+import { CodeContext, CodeContextValue } from '@renderer/CodeContext/context'
+import { useContext, useEffect } from 'react'
+import { useImmer } from 'use-immer'
 
 export function setIgnoreMouseEvents(): void {
   const el = document.querySelector('#root') as HTMLDivElement
@@ -17,8 +17,7 @@ export function setIgnoreMouseEvents(): void {
   })
 }
 
-
-export function  useCodeContext(): CodeContextValue {
+export function useCodeContext(): CodeContextValue {
   const context = useContext(CodeContext)
   if (!context?.resultData) {
     throw new Error('useCodeContext must be used within a CodeContextProvider')
@@ -26,38 +25,49 @@ export function  useCodeContext(): CodeContextValue {
   return context
 }
 
-export function useSelectCode(){
-    const { resultData } = useCodeContext()
-    const [currentIndex, setCurrentIndex] = useImmer(0);
-    const handleKeyDown = (e: KeyboardEvent) => {
-        if (resultData.length === 0) {
-            return;
-        }
-        switch (e.code) {
-            case 'ArrowUp':
-                setCurrentIndex(prev => prev - 1 < 0 ? resultData.length - 1 : prev - 1);
-                break;
-            case 'ArrowDown':
-                setCurrentIndex(prev => prev + 1 >= resultData.length ? 0 : prev + 1);
-                break;
-            case 'Enter':
-                navigator.clipboard.writeText(resultData[currentIndex].content);
-                break;
-        }
+export function useSelectCode() {
+  const { resultData } = useCodeContext()
+  const [currentIndex, setCurrentIndex] = useImmer(0)
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if (resultData.length === 0) {
+      return
     }
-    useEffect(() => {
-        document.addEventListener('keydown', handleKeyDown)
-        return () => {
-            document.removeEventListener('keydown', handleKeyDown)
-        }
-    }, [resultData, currentIndex])
-
-    useEffect(() => {
-        setCurrentIndex(0)
-    }, [resultData])
-
-    return {
-        resultData,
-        currentIndex,
+    switch (e.code) {
+      case 'ArrowUp':
+        setCurrentIndex((prev) => (prev - 1 < 0 ? resultData.length - 1 : prev - 1))
+        break
+      case 'ArrowDown':
+        setCurrentIndex((prev) => (prev + 1 >= resultData.length ? 0 : prev + 1))
+        break
+      case 'Enter':
+        selectItem(currentIndex)
     }
+  }
+
+  function selectItem(index: number) {
+    navigator.clipboard.writeText(resultData[index].content)
+    window.api.hiddenWindow()
+  }
+
+  function  clickCodeItem(index: number) {
+    setCurrentIndex(index)
+    selectItem(index)
+  }
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown)
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [resultData, currentIndex])
+
+  useEffect(() => {
+    setCurrentIndex(0)
+  }, [resultData])
+
+  return {
+    resultData,
+    currentIndex,
+    clickCodeItem
+  }
 }
