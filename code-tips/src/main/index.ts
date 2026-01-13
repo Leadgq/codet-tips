@@ -1,6 +1,5 @@
 import { app, BrowserWindow, ipcMain } from 'electron'
-import { createWindow } from './code/window'
-
+import "./code/index"
 import { electronApp, optimizer } from '@electron-toolkit/utils'
 
 app.whenReady().then(() => {
@@ -12,11 +11,6 @@ app.whenReady().then(() => {
 
   ipcMain.on('ping', () => console.log('pong'))
 
-  createWindow()
-
-  app.on('activate', function () {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow()
-  })
 })
 
 app.on('window-all-closed', () => {
