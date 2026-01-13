@@ -14,7 +14,7 @@ export function registerShortCut(window: BrowserWindow) {
     }
 
     // 检查快捷键是否注册成功
-    console.log(globalShortcut.isRegistered('CommandOrControl+Shift+i'))
+    // console.log(globalShortcut.isRegistered('CommandOrControl+Shift+i'))
   })
 
   app.on('will-quit', () => {

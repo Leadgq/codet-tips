@@ -34,6 +34,10 @@ export function createWindow(): BrowserWindow {
   } else {
     mainWindow.loadFile(join(__dirname, '../renderer/index.html'))
   }
+  // 打开调试工具
+  if (is.dev) {
+    mainWindow.webContents.openDevTools()
+  }
 
   return mainWindow
 }
