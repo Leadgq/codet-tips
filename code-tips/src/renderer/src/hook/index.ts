@@ -1,6 +1,6 @@
-import { CodeContext, CodeContextValue } from '@renderer/CodeContext/context'
-import { useContext, useEffect } from 'react'
+import { useCodeStore } from '@renderer/store'
 import { useImmer } from 'use-immer'
+import { useEffect } from 'react'
 
 export function setIgnoreMouseEvents(): void {
   const el = document.querySelector('#root') as HTMLDivElement
@@ -17,16 +17,17 @@ export function setIgnoreMouseEvents(): void {
   })
 }
 
-export function useCodeContext(): CodeContextValue {
-  const context = useContext(CodeContext)
-  if (!context?.resultData) {
-    throw new Error('useCodeContext must be used within a CodeContextProvider')
-  }
-  return context
-}
+// export function useCodeContext(): CodeContextValue {
+//   const context = useContext(CodeContext)
+//   if (!context?.resultData) {
+//     throw new Error('useCodeContext must be used within a CodeContextProvider')
+//   }
+//   return context
+// }
 
 export function useSelectCode() {
-  const { resultData } = useCodeContext()
+  const { resultData } = useCodeStore((state) => state)
+  const { setResultData, setSearchText } = useCodeStore((state) => state)
   const [currentIndex, setCurrentIndex] = useImmer(0)
   const handleKeyDown = (e: KeyboardEvent) => {
     if (resultData.length === 0) {
@@ -41,6 +42,9 @@ export function useSelectCode() {
         break
       case 'Enter':
         selectItem(currentIndex)
+        setResultData([])
+        setSearchText('')
+        break
     }
   }
 
@@ -49,7 +53,7 @@ export function useSelectCode() {
     window.api.hiddenWindow()
   }
 
-  function  clickCodeItem(index: number) {
+  function clickCodeItem(index: number) {
     setCurrentIndex(index)
     selectItem(index)
   }

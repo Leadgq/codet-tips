@@ -1,10 +1,8 @@
-import { useCodeContext } from "@renderer/hook"
-import { useImmer } from "use-immer"
 import { data as codes } from "@renderer/Data"
+import { useCodeStore } from "@renderer/store"
 export function Search(): React.JSX.Element {
-    const [searchText, setSearchText] = useImmer('')
 
-    const { setResultData } = useCodeContext()
+    const { searchText, setSearchText, setResultData } = useCodeStore((state) => state)
 
     const searchCodeText = (e: React.ChangeEvent<HTMLInputElement>) => {
         const target = e.target.value;
