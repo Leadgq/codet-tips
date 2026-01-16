@@ -10,7 +10,7 @@ const api = {
     ipcRenderer.send('hiddenWindow')
   },
   registerWindowShortCut: (shotCur: string, type: 'search' | 'config') => {
-    ipcRenderer.send('registerShortCut', shotCur, type)
+    return ipcRenderer.invoke('registerShortCut', shotCur, type)
   }
 }
 
