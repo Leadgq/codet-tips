@@ -6,6 +6,7 @@ declare global {
     api: {
         setIgnoreMouseEvents: (ignore: boolean, options?: IgnoreMouseEventsOptions) => void
         hiddenWindow: () => void
+        registerWindowShortCut: (shotCur: string, type: 'search' | 'config') => void
     }
   }
 }

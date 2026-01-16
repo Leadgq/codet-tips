@@ -1,6 +1,7 @@
 import { useCodeStore } from '@renderer/store'
 import { useImmer } from 'use-immer'
 import { useEffect } from 'react'
+import { dialog } from 'electron'
 
 export function setIgnoreMouseEvents(): void {
   const el = document.querySelector('#root') as HTMLDivElement
@@ -74,4 +75,11 @@ export function useSelectCode() {
     currentIndex,
     clickCodeItem
   }
+}
+
+export async function useRegisterShortCut(
+  shotCur: string = 'CommandOrControl+Shift+i',
+  type: 'search' | 'config' = 'search'
+) {
+  window.api.registerWindowShortCut(shotCur, type)
 }

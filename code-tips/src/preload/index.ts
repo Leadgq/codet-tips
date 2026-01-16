@@ -9,6 +9,9 @@ const api = {
   hiddenWindow: () => {
     ipcRenderer.send('hiddenWindow')
   },
+  registerWindowShortCut: (shotCur: string, type: 'search' | 'config') => {
+    ipcRenderer.send('registerShortCut', shotCur, type)
+  }
 }
 
 // Use `contextBridge` APIs to expose Electron APIs to
