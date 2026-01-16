@@ -1,4 +1,4 @@
-import { app, BrowserWindow, dialog, globalShortcut, ipcMain } from 'electron'
+import { app, BrowserWindow, globalShortcut, ipcMain } from 'electron'
 
 const config = {
   search: ''
