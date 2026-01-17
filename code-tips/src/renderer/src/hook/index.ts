@@ -27,18 +27,27 @@ export function setIgnoreMouseEvents(): void {
 
 export function useSelectCode() {
   const { resultData } = useCodeStore((state) => state)
-  const { setResultData, setSearchText } = useCodeStore((state) => state)
-  const [currentIndex, setCurrentIndex] = useImmer(0)
+  const setResultData = useCodeStore((state) => state.setResultData)
+  const setCurrentIndex = useCodeStore((state) => state.setCurrentIndex)
+  const currentIndex = useCodeStore((state) => state.currentIndex)
+  const setSearchText = useCodeStore((state) => state.setSearchText)
+
   const handleKeyDown = (e: KeyboardEvent) => {
     if (resultData.length === 0) {
       return
     }
     switch (e.code) {
       case 'ArrowUp':
-        setCurrentIndex((prev) => (prev - 1 < 0 ? resultData.length - 1 : prev - 1))
+        {
+          const index = currentIndex === 0 ? resultData.length - 1 : currentIndex - 1
+          setCurrentIndex(index)
+        }
         break
       case 'ArrowDown':
-        setCurrentIndex((prev) => (prev + 1 >= resultData.length ? 0 : prev + 1))
+        {
+          const index = currentIndex === resultData.length - 1 ? 0 : currentIndex + 1
+          setCurrentIndex(index)
+        }
         break
       case 'Enter':
         selectItem(currentIndex)
@@ -71,7 +80,6 @@ export function useSelectCode() {
 
   return {
     resultData,
-    currentIndex,
     clickCodeItem
   }
 }

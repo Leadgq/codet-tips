@@ -1,9 +1,10 @@
 import { useSelectCode } from '@renderer/hook'
+import { useCodeStore } from '@renderer/store'
 import './style.scss'
 
 export function Result(): React.JSX.Element {
-    const { resultData, currentIndex, clickCodeItem } = useSelectCode()
-
+    const { resultData, clickCodeItem } = useSelectCode()
+    const currentIndex = useCodeStore((state) => state.currentIndex)
 
     function setActive(index: number) {
         return index === currentIndex ? 'item active' : 'item'
