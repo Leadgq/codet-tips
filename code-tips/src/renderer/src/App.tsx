@@ -8,9 +8,11 @@ function App(): React.JSX.Element {
   useRegisterShortCut()
   return (
     <>
-      <Error />
-      <Search />
-      <Result />
+      <main className=" relative ">
+        <Error />
+        <Search />
+        <Result />
+      </main>
     </>
   )
 }

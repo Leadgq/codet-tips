@@ -1,5 +1,6 @@
 import { useCodeStore } from "@renderer/store"
 import { useEffect } from "react"
+import { Alert } from 'antd';
 
 export function Error() {
     const error = useCodeStore((state) => state.error)
@@ -18,15 +19,12 @@ export function Error() {
 
     return (
         error ? (
-            <div className="bg-red-500 text-white  rounded-md flex items-center justify-between">
-                {error}
-                <button
-                    onClick={() => setError('')}
-                    className="ml-4 text-white hover:text-gray-200 transition-colors"
-                    aria-label="关闭错误"
-                >
-                    ✕
-                </button>
+            <div className=" absolute top-0  w-full">
+                <Alert
+                    title={error}
+                    type="error"
+                    showIcon
+                />
             </div>
         ) : <></>
     )
