@@ -1,5 +1,4 @@
 import { useCodeStore } from '@renderer/store'
-import { useImmer } from 'use-immer'
 import { useEffect } from 'react'
 
 export function setIgnoreMouseEvents(): void {
@@ -51,8 +50,7 @@ export function useSelectCode() {
         break
       case 'Enter':
         selectItem(currentIndex)
-        setResultData([])
-        setSearchText('')
+        rest()
         break
     }
   }
@@ -62,9 +60,14 @@ export function useSelectCode() {
     window.api.hiddenWindow()
   }
 
+  function rest() {
+    setSearchText('')
+    setResultData([])
+  }
+
   function clickCodeItem(index: number) {
-    setCurrentIndex(index)
     selectItem(index)
+    rest()
   }
 
   useEffect(() => {

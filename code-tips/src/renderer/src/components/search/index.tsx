@@ -4,7 +4,10 @@ import { SettingOne } from '@icon-park/react';
 
 export function Search(): React.JSX.Element {
 
-    const { searchText, setSearchText, setResultData } = useCodeStore((state) => state)
+    const searchText = useCodeStore((state) => state.searchText)
+    const setSearchText = useCodeStore((state) => state.setSearchText)
+    const setResultData = useCodeStore((state) => state.setResultData)
+    const setCurrentIndex = useCodeStore(state => state.setCurrentIndex)
 
     const searchCodeText = (e: React.ChangeEvent<HTMLInputElement>) => {
         const target = e.target.value;
@@ -15,6 +18,9 @@ export function Search(): React.JSX.Element {
             setResultData(
                 codeList
             )
+            if (codeList.length > 0) {
+                setCurrentIndex(0)
+            }
         } else {
             setResultData([])
         }
@@ -26,7 +32,7 @@ export function Search(): React.JSX.Element {
         <>
             <div className=" bg-slate-50 p-3  drag  rounded-lg ">
                 <section className=" bg-slate-200 p-2 rounded-lg flex items-center nodrag">
-                    <SettingOne theme="outline" size="20" className="cursor-pointer" fill="#34495e" onClick={goSettingPage} />
+                    <SettingOne theme="outline" size="20" className="cursor-pointer mr-1" fill="#34495e" onClick={goSettingPage} />
                     <input className="w-full outline-none text-2xl text-slate-600  bg-slate-200"
                         value={searchText}
                         onChange={searchCodeText} />
