@@ -1,4 +1,4 @@
-import { BrowserWindow, shell } from 'electron'
+import { BrowserWindow, globalShortcut, shell } from 'electron'
 import { join } from 'path'
 import icon from '../../../resources/icon.png?asset'
 import { is } from '@electron-toolkit/utils'
@@ -36,7 +36,9 @@ export function createWindow(): BrowserWindow {
   }
   // 打开调试工具
   if (is.dev) {
-    mainWindow.webContents.openDevTools()
+    globalShortcut.register('CommandOrControl+alt+o', () => {
+      BrowserWindow.getAllWindows()[0].webContents.openDevTools()
+    })
   }
 
   return mainWindow
