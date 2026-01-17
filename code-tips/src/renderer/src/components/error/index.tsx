@@ -15,7 +15,7 @@ export function Error() {
         }
 
         return () => clearTimeout(timer)
-    }, [error]) // 添加 error 和 setError 到依赖数组
+    }, [error]) 
 
     return (
         error ? (

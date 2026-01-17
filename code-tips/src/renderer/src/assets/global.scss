@@ -12,3 +12,8 @@ textarea,
 option {
   -webkit-app-region: no-drag;
 }
+
+html,
+body {
+  @apply w-screen h-screen ;
+}

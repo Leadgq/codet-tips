@@ -1,7 +1,7 @@
 import { data as codes } from "@renderer/Data"
 import { useCodeStore } from "@renderer/store"
 import { SettingOne } from '@icon-park/react';
-
+import { Input } from 'antd';
 export function Search(): React.JSX.Element {
 
     const searchText = useCodeStore((state) => state.searchText)
@@ -33,8 +33,9 @@ export function Search(): React.JSX.Element {
             <div className=" bg-slate-50 p-3  drag  rounded-lg ">
                 <section className=" bg-slate-200 p-2 rounded-lg flex items-center nodrag">
                     <SettingOne theme="outline" size="20" className="cursor-pointer mr-1" fill="#34495e" onClick={goSettingPage} />
-                    <input className="w-full outline-none text-2xl text-slate-600  bg-slate-200"
+                    <Input className="text-xl text-slate-600 "
                         value={searchText}
+                        autoFocus={true}
                         onChange={searchCodeText} />
                 </section>
             </div>

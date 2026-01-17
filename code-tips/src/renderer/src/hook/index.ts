@@ -2,8 +2,9 @@ import { useCodeStore } from '@renderer/store'
 import { useEffect } from 'react'
 
 export function setIgnoreMouseEvents(): void {
-  const el = document.querySelector('#root') as HTMLDivElement
+  const el = document.querySelector('#main') as HTMLDivElement
   if (el) {
+      console.log(el);
     el.addEventListener('mouseenter', () => {
       window.api.setIgnoreMouseEvents(false)
     })
