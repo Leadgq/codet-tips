@@ -80,5 +80,9 @@ export async function useRegisterShortCut(
   shotCur: string = 'CommandOrControl+Shift+i',
   type: 'search' | 'config' = 'search'
 ) {
-  return await window.api.registerWindowShortCut(shotCur, type)
+  const setError = useCodeStore((state) => state.setError)
+  const res = await window.api.registerWindowShortCut(shotCur, type)
+  if (!res) {
+    setError(`注册快捷键失败, 请检查是否已注册 ${shotCur}`)
+  }
 }

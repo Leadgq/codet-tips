@@ -6,6 +6,8 @@ interface props {
   setResultData: (data: ResultDataInterFace[]) => void
   searchText: string
   setSearchText: (text: string) => void
+  error: string
+  setError: (message: string) => void
 }
 
 export const useCodeStore = create<props>((set) => ({
@@ -13,4 +15,6 @@ export const useCodeStore = create<props>((set) => ({
   setResultData: (data: ResultDataInterFace[]) => set({ resultData: data }),
   searchText: '',
   setSearchText: (text: string) => set({ searchText: text }),
+  error: '',
+  setError: (message: string) => set({ error: message }),
 }))
