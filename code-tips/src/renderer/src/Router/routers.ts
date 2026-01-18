@@ -1,7 +1,7 @@
-import { createBrowserRouter } from 'react-router'
+import { createHashRouter } from 'react-router'
 import Home from '@renderer/Pages/Home'
 
-export const routes = createBrowserRouter([
+export const routes = createHashRouter([
   {
     path: '/',
     Component: Home
