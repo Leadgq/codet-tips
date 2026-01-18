@@ -15,6 +15,8 @@ export function registerShortCut(window: BrowserWindow) {
     switch (type) {
       case 'search':
         return registerSearchShortCut(window, shotCur)
+      case 'config':
+        return registerSearchShortCut(window, shotCur)
     }
   })
 }
