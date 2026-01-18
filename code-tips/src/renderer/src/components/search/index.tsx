@@ -26,7 +26,7 @@ export function Search(): React.JSX.Element {
         }
     }
     function goSettingPage() {
-        alert('设置')
+        window.api.openConfigWindow()
     }
     return (
         <>

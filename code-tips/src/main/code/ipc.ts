@@ -1,4 +1,5 @@
 import { BrowserWindow, IgnoreMouseEventsOptions, IpcMainEvent, ipcMain } from 'electron'
+import { createConfigWindow } from '../config'
 
 ipcMain.on(
   'setIgnoreMouseEvents',
@@ -11,4 +12,8 @@ ipcMain.on(
 ipcMain.on('hiddenWindow',(event: IpcMainEvent)=>{
    const win = BrowserWindow.fromWebContents(event.sender)
    win?.hide()
+})
+
+ipcMain.on('openConfigWindow',()=>{
+   createConfigWindow()
 })

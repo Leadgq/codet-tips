@@ -11,6 +11,10 @@ const api = {
   },
   registerWindowShortCut: (shotCur: string, type: 'search' | 'config') => {
     return ipcRenderer.invoke('registerShortCut', shotCur, type)
+  },
+  // open config window
+  openConfigWindow: () => {
+    ipcRenderer.send('openConfigWindow')
   }
 }
 

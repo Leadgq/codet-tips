@@ -1,1 +1,5 @@
-export default () => 'code-tips'
+import { createWindow } from "./window";
+
+export function createConfigWindow() {
+  return createWindow()
+}
