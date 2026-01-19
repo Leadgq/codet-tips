@@ -3,7 +3,7 @@ import './content.scss'
 function Content(): React.JSX.Element {
     return (
         <div className="content">
-            content
+            我是页面
         </div>
     )
 }
