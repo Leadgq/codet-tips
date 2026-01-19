@@ -11,6 +11,7 @@ export function createWindow(): BrowserWindow {
     width,
     height: 650,
     x: screenWidth - width,
+    y: 0,
     // center: true,
     show: false,
     alwaysOnTop: true,
