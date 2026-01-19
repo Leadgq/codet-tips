@@ -1,0 +1,12 @@
+.content-page {
+    display: grid;
+    grid-template: "list content" auto / 150px auto;
+    .list {
+        grid-area: list;
+        @apply h-screen;
+    }
+    .content {
+        grid-area: content;
+        @apply h-screen;
+    }
+}
