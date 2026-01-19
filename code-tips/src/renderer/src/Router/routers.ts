@@ -1,6 +1,7 @@
 import { createHashRouter } from 'react-router'
 import Home from '@renderer/Pages/Home'
 import Category from '@renderer/Pages/Category'
+import Content from '@renderer/Pages/Content'
 
 export const routes = createHashRouter([
   {
@@ -11,8 +12,14 @@ export const routes = createHashRouter([
     path: '/config',
     children: [
       {
-        index: true,
-        Component: Category
+        path: '',
+        Component: Category,
+        children: [
+          {
+            index: true,
+            Component: Content
+          }
+        ]
       }
     ],
     lazy: async () => {
