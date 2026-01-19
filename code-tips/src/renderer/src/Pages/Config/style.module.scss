@@ -5,7 +5,7 @@
     grid-template:
         ". ." 30px
         "category  content" auto
-        "nav content" 50px /100px 1fr;
+        "nav content" 30px /100px 1fr;
     div {
         &.content {
             grid-area: content;

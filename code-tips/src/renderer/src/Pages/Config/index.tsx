@@ -1,13 +1,9 @@
-import styles from './style.module.scss'
+import { Outlet } from 'react-router'
 
 function Config(): React.JSX.Element {
     return (
-        <main className={styles.container}>
-            <div></div>
-            <div></div>
-            <div className={ styles.category }></div>
-            <div className={ styles.content }></div>
-            <div className={ styles.nav }></div>
+        <main>
+            <Outlet />
         </main>
     )
 }
