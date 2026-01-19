@@ -1,15 +1,19 @@
-import { BrowserWindow, globalShortcut, shell } from 'electron'
+import { BrowserWindow, globalShortcut, shell, screen } from 'electron'
 import { join } from 'path'
 import icon from '../../../resources/icon.png?asset'
 import { is } from '@electron-toolkit/utils'
 import url from 'node:url'
 
 export function createWindow(): BrowserWindow {
+  const { width:screenWidth } = screen.getPrimaryDisplay().workAreaSize
+  const width = 1250;
   const configWindow = new BrowserWindow({
-    width: 600,
-    height: 500,
-    center: true,
+    width,
+    height: 650,
+    x: screenWidth - width,
+    // center: true,
     show: false,
+    alwaysOnTop: true,
     autoHideMenuBar: true,
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {

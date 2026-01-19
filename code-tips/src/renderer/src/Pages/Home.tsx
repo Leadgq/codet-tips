@@ -9,6 +9,7 @@ function Home(): React.JSX.Element {
   useRegisterShortCut()
   useEffect(() => {
     setIgnoreMouseEvents()
+    window.api.openConfigWindow()
   }, [])
   return (
     <>
