@@ -5,9 +5,9 @@ function Config(): React.JSX.Element {
         <main className={styles.container}>
             <div></div>
             <div></div>
-            <div></div>
+            <div className={ styles.category }></div>
             <div className={ styles.content }></div>
-            <div></div>
+            <div className={ styles.nav }></div>
         </main>
     )
 }

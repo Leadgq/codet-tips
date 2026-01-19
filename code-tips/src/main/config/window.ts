@@ -13,6 +13,8 @@ export function createWindow(): BrowserWindow {
     x: screenWidth - width,
     y: 0,
     // center: true,
+    frame: false,
+    transparent: true,
     show: false,
     alwaysOnTop: true,
     autoHideMenuBar: true,

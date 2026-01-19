@@ -1,14 +1,29 @@
 .container {
-    @apply w-screen h-screen;
+    @apply w-screen h-screen bg-white;
+
     display: grid;
     grid-template:
-        '. .' 30px
-        'category  content'  auto
-        'nav content' 50px /100px 1fr;
+        ". ." 30px
+        "category  content" auto
+        "nav content" 50px /100px 1fr;
     div {
-        @apply bg-violet-500 border;
         &.content {
             grid-area: content;
+        }
+        &:nth-child(1),
+        &:nth-child(2) {
+            -webkit-app-region: drag;
+        }
+        &:nth-child(1) {
+            @apply border-r;
+        }
+        &.category {
+            @apply border-r;
+            grid-area: category;
+        }
+        &.nav {
+            grid-area: nav;
+            @apply border-t border-r;
         }
     }
 }
