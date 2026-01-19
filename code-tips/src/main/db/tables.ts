@@ -12,7 +12,7 @@ db.exec(
 
 db.exec(
   `
-      create table if not exists content (
+      create table if not exists contents (
        id integer primary key autoincrement not null,
        title text not null,
        content text not null,
@@ -21,3 +21,4 @@ db.exec(
       )
     `
 )
+
