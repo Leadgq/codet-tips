@@ -1,3 +1,14 @@
 .container {
-    @apply w-screen h-screen bg-red-400 p-5;
+    @apply w-screen h-screen;
+    display: grid;
+    grid-template:
+        '. .' 30px
+        'category  content'  auto
+        'nav content' 50px /100px 1fr;
+    div {
+        @apply bg-violet-500 border;
+        &.content {
+            grid-area: content;
+        }
+    }
 }

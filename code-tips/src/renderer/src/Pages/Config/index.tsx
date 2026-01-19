@@ -3,7 +3,11 @@ import styles from './style.module.scss'
 function Config(): React.JSX.Element {
     return (
         <main className={styles.container}>
-            配置像
+            <div></div>
+            <div></div>
+            <div></div>
+            <div className={ styles.content }></div>
+            <div></div>
         </main>
     )
 }
