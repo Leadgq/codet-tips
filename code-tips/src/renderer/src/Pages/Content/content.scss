@@ -3,7 +3,7 @@
     grid-template: "list content" auto / 150px auto;
     .list {
         grid-area: list;
-        @apply h-screen;
+        @apply h-screen bg-slate-50;
     }
     .content {
         grid-area: content;

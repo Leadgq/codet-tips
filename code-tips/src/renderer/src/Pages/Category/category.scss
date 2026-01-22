@@ -1,19 +1,19 @@
 .categoryPage {
-    @apply w-screen h-screen;
+    @apply w-screen h-screen text-xs  text-slate-500;
     display: grid;
     grid-template:
         "category content" auto
-        "nav content" 50px/120px;
+        "nav content" 30px/120px;
 
     .nav {
         grid-area: nav;
-        @apply border-r border-t;
+        @apply border-r border-t flex items-center justify-center gap-4;
     }
     .content {
         grid-area: content;
     }
     .category {
-        @apply border-r;
+        @apply border-r bg-slate-50;
         grid-area: category;
     }
 }
