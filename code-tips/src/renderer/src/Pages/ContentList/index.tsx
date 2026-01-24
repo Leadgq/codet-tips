@@ -1,22 +1,21 @@
-import { useLoaderData } from 'react-router'
+import { NavLink, Outlet, useLoaderData } from 'react-router'
 import './content.scss'
 
 function ContentList(): React.JSX.Element {
     const contents = useLoaderData() as contentType[]
-    console.log(contents);
     return (
         <div className="content-page">
             <div className='list'>
                 {
                     contents.map((item) => (
-                        <a className='list-item' key={item.id}>
+                        <NavLink to={`/config/category/contentList/${item.category_id}/content/${item.id}`} className='list-item' key={item.id}>
                             {item.title}
-                        </a>
+                        </NavLink>
                     ))
                 }
             </div>
             <div className='content'>
-                内容
+                <Outlet />
             </div>
         </div>
     )
