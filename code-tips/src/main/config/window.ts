@@ -35,7 +35,7 @@ export function createWindow(): BrowserWindow {
   })
 
   if (is.dev && process.env['ELECTRON_RENDERER_URL']) {
-    configWindow.loadURL(process.env['ELECTRON_RENDERER_URL']+'/#config')
+    configWindow.loadURL(process.env['ELECTRON_RENDERER_URL']+'/#config/category')
   } else {
     url.format({
       //编译后的文件
@@ -45,7 +45,7 @@ export function createWindow(): BrowserWindow {
       //protocol 后面需要两个/
       slashes: true,
       //hash 的值
-      hash: 'config'
+      hash: 'config/category'
     }) 
   }
   // 打开configWindow调试工具

@@ -1,6 +1,6 @@
 import './content.scss'
 
-function Content(): React.JSX.Element {
+ function ContentList(): React.JSX.Element {
     return (
         <div className="content-page">
             <div className='list'>ref</div>
@@ -8,4 +8,5 @@ function Content(): React.JSX.Element {
         </div>
     )
 }
-export default Content 
+
+export default ContentList
