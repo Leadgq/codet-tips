@@ -17,6 +17,9 @@
         grid-area: category;
         .item {
             @apply px-1 py-2 truncate cursor-pointer block;
+            &.active{
+                @apply text-white bg-blue-200 ;
+            }
         }
     }
 }
