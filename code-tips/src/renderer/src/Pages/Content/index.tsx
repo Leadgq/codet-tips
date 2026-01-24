@@ -1,13 +1,17 @@
 import { useLoaderData } from "react-router"
+import './content.scss'
 
-function Content(){
+function Content() {
     const content = useLoaderData() as contentType
     return (
-        <div className='content'>
-            <h1>{content.content}</h1>
-        </div>
+        <main className='content-page'>
+            <h1 className='title'>{content.title}</h1>
+            <div className='page-content'>
+                {content.content}
+            </div>
+        </main>
     )
 }
 
 
-export default Content
+export default Content 

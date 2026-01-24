@@ -1,0 +1,9 @@
+.content-page {
+    @apply p-4 overflow-y-auto h-full;
+    .title {
+        @apply text-base  font-bold text-slate-600 opacity-95;
+    }
+    .page-content {
+        @apply text-sm text-slate-500 opacity-95 mt-2 leading-8;
+    }
+}
