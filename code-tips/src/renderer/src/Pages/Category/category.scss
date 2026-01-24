@@ -13,7 +13,10 @@
         grid-area: content;
     }
     .category {
-        @apply border-r bg-slate-50;
+        @apply border-r bg-slate-50 overflow-y-auto;
         grid-area: category;
+        .item {
+            @apply px-1 py-2 truncate cursor-pointer;
+        }
     }
 }

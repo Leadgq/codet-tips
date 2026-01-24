@@ -1,4 +1,5 @@
 import { db } from './connect'
+import { Random } from 'mockjs'
 
 db.exec(
   `
@@ -22,3 +23,12 @@ db.exec(
     `
 )
 
+// for (let i = 0; i < 10; i++) {
+//   const name = Random.title(5, 20)
+//   db.exec(
+//     `
+//         insert into categories (name, create_at)
+//         values ('${name}', dateTime())
+//       `
+//   )
+// }

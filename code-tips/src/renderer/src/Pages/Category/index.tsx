@@ -8,7 +8,7 @@ function Category(): React.JSX.Element {
         <main className="categoryPage">
             <div className="category p-2">
                 {categories.map((item) => (
-                    <div key={item.id} className="mb-1">
+                    <div key={item.id} className="item">
                         {item.name}
                     </div>
                 ))}
