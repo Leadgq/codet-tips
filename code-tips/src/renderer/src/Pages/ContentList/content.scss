@@ -3,7 +3,10 @@
     grid-template: "list content" auto / 150px auto;
     .list {
         grid-area: list;
-        @apply h-screen bg-slate-50;
+        @apply h-screen bg-slate-50 overflow-auto pt-2;
+        .list-item {
+            @apply block px-2 py-2 text-slate-700   truncate cursor-pointer;
+        }
     }
     .content {
         grid-area: content;

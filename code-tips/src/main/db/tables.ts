@@ -31,4 +31,14 @@ db.exec(
 //         values ('${name}', dateTime())
 //       `
 //   )
+//   for (let j = 1; j < 30; j++) {
+//     const title = Random.title(5, 20)
+//     const content = Random.paragraph(5, 10)
+//     db.exec(
+//       `
+//           insert into contents (title, content, category_id, create_at)
+//           values ('${title}', '${content}', ${i}, dateTime())
+//         `
+//     )
+//   }
 // }

@@ -5,3 +5,11 @@ type categoryType = {
     name: string
     create_at: string
 }
+
+type contentType = {
+    id: number
+    title: string
+    content: string
+    category_id: number
+    create_at: string
+}
