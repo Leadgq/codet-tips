@@ -1,13 +1,19 @@
 .contentList-page {
     display: grid;
-    grid-template: "list content" auto / 150px auto;
+    grid-template: "list content" auto / 180px auto;
     .list {
         grid-area: list;
         @apply h-screen bg-slate-50 overflow-auto pt-2;
         .list-item {
-            @apply block px-2 py-2 text-slate-700   truncate cursor-pointer;
+            @apply px-2 py-2 text-slate-700  cursor-pointer flex items-center;
             &.active {
                 @apply text-white bg-blue-700 rounded-md mx-1;
+                .time {
+                    @apply text-white;
+                }
+            }
+            .time {
+                @apply text-slate-500 opacity-85 ml-2;
             }
         }
     }
