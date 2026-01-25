@@ -1,6 +1,6 @@
 import { Link, Outlet, useLoaderData } from 'react-router'
 import './category.scss'
-import { Add, DatabaseSetting } from '@icon-park/react'
+import { Add, DatabaseSetting, FolderClose } from '@icon-park/react'
 import classNames from 'classnames'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router';
@@ -17,7 +17,7 @@ function Category(): React.JSX.Element {
             navigate(`/config/category/contentList/${first?.id}`)
         }
     }, [categories])
-    
+
     return (
         <main className="categoryPage">
             <div className="category p-2">
@@ -32,7 +32,8 @@ function Category(): React.JSX.Element {
                         }
                         onClick={() => setCurrent(category)}
                     >
-                        {category.name}
+                        <FolderClose theme='outline' size="12" strokeWidth={3} />
+                        <span> {category.name}</span>
                     </Link>
                 ))}
             </div>
