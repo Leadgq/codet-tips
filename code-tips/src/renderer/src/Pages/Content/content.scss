@@ -1,10 +1,10 @@
 .content-page {
-    @apply p-4 overflow-y-auto h-screen grid grid-cols-1 grid-rows-2;
-    grid-template-rows: 50px 1fr;
+    @apply overflow-y-auto h-screen grid grid-cols-1 grid-rows-2;
+    grid-template-rows: 50px 1fr 40px;
     input {
-        @apply outline-none text-lg truncate;
+        @apply outline-none text-lg truncate  p-4 bg-slate-50;
     }
     textarea {
-        @apply outline-none pt-3 border-t;
+        @apply outline-none pt-3 border-t  p-4 bg-slate-50 opacity-90;
     }
 }
