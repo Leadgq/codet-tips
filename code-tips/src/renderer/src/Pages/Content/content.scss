@@ -1,9 +1,10 @@
 .content-page {
-    @apply p-4 overflow-y-auto h-full;
-    .title {
-        @apply text-base  font-bold text-slate-600 opacity-95;
+    @apply p-4 overflow-y-auto h-screen grid grid-cols-1 grid-rows-2;
+    grid-template-rows: 50px 1fr;
+    input {
+        @apply outline-none text-lg truncate;
     }
-    .page-content {
-        @apply text-sm text-slate-500 opacity-95 mt-2 leading-8;
+    textarea {
+        @apply outline-none pt-3 border-t;
     }
 }
