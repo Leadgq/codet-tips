@@ -8,15 +8,15 @@ import { useNavigate } from 'react-router';
 function Category(): React.JSX.Element {
     const categories = useLoaderData() as categoryType[]
     const [current, setCurrent] = useState<categoryType>()
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
-    useEffect(() => {
-        if (categories.length > 0) {
-            const first = categories.at(0)
-            setCurrent(first)
-            navigate(`/config/category/contentList/${first?.id}`)
-        }
-    }, [categories])
+    // useEffect(() => {
+    //     if (categories.length > 0) {
+    //         const first = categories.at(0)
+    //         setCurrent(first)
+    //         navigate(`/config/category/contentList/${first?.id}`)
+    //     }
+    // }, [categories])
 
     return (
         <main className="categoryPage">
