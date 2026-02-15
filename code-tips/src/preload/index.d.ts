@@ -8,7 +8,7 @@ declare global {
       hiddenWindow: () => void
       registerWindowShortCut: (shotCur: string, type: 'search' | 'config') => Promise<boolean>
       openConfigWindow: () => void
-      sql: <T>(sql: string, type: sqlType) => Promise<T>
+      sql: <T>(sql: string, type: sqlType, params?: Record<string, any>) => Promise<T>
     }
   }
 }

@@ -1,9 +1,9 @@
-import { contextBridge, ipcRenderer ,IgnoreMouseEventsOptions} from 'electron'
+import { contextBridge, ipcRenderer, IgnoreMouseEventsOptions } from 'electron'
 import { electronAPI } from '@electron-toolkit/preload'
 
 // Custom APIs for renderer
 const api = {
-    setIgnoreMouseEvents: (ignore: boolean, options?: IgnoreMouseEventsOptions) => {
+  setIgnoreMouseEvents: (ignore: boolean, options?: IgnoreMouseEventsOptions) => {
     ipcRenderer.send('setIgnoreMouseEvents', ignore, options)
   },
   hiddenWindow: () => {
@@ -17,8 +17,8 @@ const api = {
     ipcRenderer.send('openConfigWindow')
   },
   // sql query
-  sql: <T>(sql: string, type: sqlType) => {
-    return ipcRenderer.invoke('sql', sql, type) as Promise<T>
+  sql: <T>(sql: string, type: sqlType, params = {}) => {
+    return ipcRenderer.invoke('sql', sql, type, params) as Promise<T>
   }
 }
 

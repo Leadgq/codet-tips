@@ -1,17 +1,19 @@
-import { useLoaderData } from "react-router"
+import { Form, useLoaderData } from "react-router"
 import './content.scss'
-import { Button } from "antd"
 
 function Content() {
     const content = useLoaderData() as contentType
     return (
-        <main className='content-page'>
-            <input defaultValue={content.title} />
-            <textarea defaultValue={content.content} />
-            <div className="flex justify-center items-center border-t">
-                <Button type="default" size="small">保存</Button>
-            </div>
-        </main>
+        <Form method='PUT'>
+            <main className='content-page'>
+                <input name='title' defaultValue={content.title} />
+                <textarea name='content' defaultValue={content.content} />
+                <div className="flex justify-center items-center border-t">
+                    {/* <button type="default" size="small">保存</button> */}
+                    <button type="submit">保存</button>
+                </div>
+            </main>
+        </Form>
     )
 }
 
