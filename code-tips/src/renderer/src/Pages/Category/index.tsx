@@ -1,6 +1,6 @@
-import { Link, Outlet, useLoaderData } from 'react-router'
+import { NavLink, Outlet, useLoaderData } from 'react-router'
 import './category.scss'
-import { Add, DatabaseSetting, FolderClose } from '@icon-park/react'
+import { Add, DatabaseSetting, FolderClose, AllApplication } from '@icon-park/react'
 import classNames from 'classnames'
 import { useState } from 'react'
 
@@ -11,8 +11,14 @@ function Category(): React.JSX.Element {
     return (
         <main className="categoryPage">
             <div className="category p-2">
+                <NavLink to={`/config/category/contentList`} end>
+                    <div className='flex items-center gap-1'>
+                        <AllApplication theme='outline' size="12" strokeWidth={3} />
+                        <span> 所有片段</span>
+                    </div>
+                </NavLink>
                 {categories.map((category) => (
-                    <Link key={category.id} to={`/config/category/contentList/${category.id}`}
+                    <NavLink key={category.id} to={`/config/category/contentList/${category.id}`}
                         className={
                             classNames('item',
                                 {
@@ -24,7 +30,7 @@ function Category(): React.JSX.Element {
                     >
                         <FolderClose theme='outline' size="12" strokeWidth={3} />
                         <span> {category.name}</span>
-                    </Link>
+                    </NavLink>
                 ))}
             </div>
             <div className="nav">
