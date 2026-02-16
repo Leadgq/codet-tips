@@ -7,6 +7,7 @@ import contentListLoader from '@renderer/Pages/ContentList/contentListLoader'
 import Content from '@renderer/Pages/Content'
 import contentLoader from '@renderer/Pages/Content/contentLoader'
 import { contentAction } from '@renderer/Pages/Content/contentAction'
+import Welcome from '@renderer/Pages/Welcome'
 
 export const routes = createHashRouter([
   {
@@ -21,6 +22,10 @@ export const routes = createHashRouter([
         Component: Category,
         loader: CategoryLoader,
         children: [
+          {
+            index: true,
+            Component: Welcome
+          },
           {
             path: 'contentList/:cid',
             Component: ContentList,
