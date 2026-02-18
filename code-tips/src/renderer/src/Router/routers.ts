@@ -23,14 +23,14 @@ export const routes = createHashRouter([
         loader: CategoryLoader,
         children: [
           {
-            index: true,
-            Component: Welcome
-          },
-          {
             path: 'contentList/:cid?',
             Component: ContentList,
             loader: contentListLoader,
             children: [
+              {
+                index: true,
+                Component: Welcome
+              },
               {
                 path: 'content/:id',
                 Component: Content,
