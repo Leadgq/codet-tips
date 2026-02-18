@@ -1,5 +1,4 @@
 import { db } from './connect'
-import { Random } from 'mockjs'
 
 db.exec(
   `

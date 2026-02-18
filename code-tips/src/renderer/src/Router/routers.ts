@@ -27,7 +27,7 @@ export const routes = createHashRouter([
             Component: Welcome
           },
           {
-            path: 'contentList/:cid',
+            path: 'contentList/:cid?',
             Component: ContentList,
             loader: contentListLoader,
             children: [
